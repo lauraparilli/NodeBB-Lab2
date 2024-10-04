@@ -135,7 +135,8 @@ define('forum/register', [
 				if (results.every(obj => obj.status === 'rejected')) {
 					showSuccess(usernameInput, username_notify, successIcon);
 				} else {
-					showError(usernameInput, username_notify, '[[error:username-taken]]');
+					const errorMessage = `[[error:username-taken]]. Maybe try with ${username}${Math.floor(Math.random()*(999-100+1)+100)}`
+					showError(usernameInput, username_notify, `${errorMessage}`);
 				}
 
 				callback();
